@@ -1,0 +1,241 @@
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* begin navigation ------------------------------------------------------ */
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color: #5d4954;
+    font-family: 'Poppins', sans-serif;
+}
+
+.logo{
+    color: rgb(226,226,226);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 20px;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links a {
+    color: rgb(226,226,226);
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.burger{
+    display: none;
+    cursor: pointer;
+}
+
+.burger div{
+    width: 25px;
+    height: 3px;
+    background-color: rgb(226,226,226);
+    margin: 5px;
+}
+
+/* end navigation ------------------------------------------------------ */
+
+/* begin main content ------------------------------------------------------ */
+.main-content{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: white;
+    font-family: 'Poppins', sans-serif;
+    min-height: 92vh;
+}
+
+/* begin schedule modifier */
+.schedule-modifier{
+    min-height: 92vh;
+    min-width: 50vw;
+    border-right: 2px solid black;
+    text-align: center;
+}
+
+.course-header {
+    background-color: cyan;
+}
+
+.course-list{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.course-container {
+    border: 3px solid black;
+    margin: 2px;
+}
+
+.course-name-btn {
+    position: relative;
+    display: flex;
+}
+
+.course-name {
+    background-color: lightgreen;
+}
+
+.add-period-button {
+    position: absolute;
+    right: 10px;
+}
+
+.course-option-list {
+    display: flex;
+    overflow: scroll;
+    min-height: 15vh;
+}
+
+.list-item {
+    flex: 0 0 30%;
+    list-style: none;
+    background-color: lightgreen;
+    margin: 2px;
+    display: flex;
+    flex-direction: column;
+    overflow-x: scroll;
+    white-space: nowrap;
+}
+
+
+
+.add-course-button {
+
+}
+
+/* begin schedule generated */
+.schedule-generated {
+    min-height: 92vh;
+    min-width: 50vw;
+}
+/* end main content ------------------------------------------------------ */
+
+
+
+
+/* begin add course page ------------------------------------------------------ */
+.add-course-page{
+    position: fixed;
+    min-width: 50vw;
+    min-height: 50vh;
+    top: 10vh;
+    bottom: 10vh;
+    left: 10vw;
+    right: 10vw;
+    background-color: green;
+    display: none;
+    overflow: scroll;
+}
+
+.add-course-form {
+    text-align: center;
+}
+
+.form-control {
+    text-align: left;
+}
+
+.form-period-list{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.form-control-period{
+    flex: 0 0 50%;
+    background-color: lightgreen;
+    white-space: nowrap;
+    margin: 2px;
+}
+
+/* end add course page ------------------------------------------------------ */
+
+
+
+
+
+
+/* begin media ------------------------------------------------------ */
+@media screen and (max-width:1024px){
+    .nav-links{
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 768px){
+    body{
+        overflow-x: hidden;
+    }
+    .nav-links{
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        top: 8vh;
+        background-color: #5d4954;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+
+    .nav-links li{
+        opacity: 0;
+    }
+    .burger{
+        display: block;
+    }
+}
+
+.nav-active{
+    transform: translateX(0%);
+}
+
+@keyframes navLinkFade{
+    from{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.toggle .line1{
+    transform: rotate(-45deg) translate(-5px,6px);
+}
+.toggle .line2{
+    opacity: 0;
+}
+.toggle .line3{
+    transform: rotate(45deg) translate(-5px,-6px);
+}

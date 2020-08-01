@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Maker</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- begin navigation ----------------------------------------------------------------------------->
+    <nav>
+        <div class="logo">
+            <h4>OyanggeO</h4>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Work</a></li>
+            <li><a href="#">Projects</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+<!-- end navigation ----------------------------------------------------------------------------->
+
+<!-- begin main content ----------------------------------------------------------------------------->
+    <div class="main-content">
+        <!-- begin schedule modifier -->
+        <div class="schedule-modifier">
+            <h1 class="course-header">Courses</h1>
+            <div class="course-list">
+                <div class="course-container">
+                    <div class="course-name-btn">
+                        <div class="course-name">Computer Science</div>                
+                        <button class="add-period-button">Add a period</button>
+                    </div>
+                    <div class="course-option-list">
+                        <li class="list-item">Mon 11am-3pm</li>
+                        <li class="list-item">Mon 11am-3pm</li>
+                        <li class="list-item">Mon 11am-3pm</li>
+                        <li class="list-item">Mon 11am-3pm</li>
+                        <li class="list-item">Mon 11am-3pm</li>
+                        <li class="list-item">Mon 11am-3pm</li>
+                        <li class="list-item">Mon 11am-3pm</li>
+                        <li class="list-item">Mon 11am-3pm</li>
+                    </div>
+                </div>   
+                <div class="course-container">
+                    <div class="course-name-btn">
+                        <div class="course-name">Computer Science</div>                
+                        <button class="add-period-button">Add a period</button>
+                    </div>
+                    <div class="course-option-list">
+                        <li class="list-item">Mon 11am-3pm</li>
+                        <li class="list-item">Mon 11am-3pm</li>
+                        <li class="list-item">Mon 11am-3pm</li>
+                        <li class="list-item">Mon 11am-3pm</li>
+                        <li class="list-item">Mon 11am-3pm</li>
+                        <li class="list-item">Mon 11am-3pm</li>
+                        <li class="list-item">Mon 11am-3pm</li>
+                        <li class="list-item">Mon 11am-3pm</li>
+                    </div>
+                </div>                
+            </div>
+            <button type="button" class="add-course-button">Add a course</button>
+            <button type="button" class="generate-schedule">Generate!</button>
+        </div>
+        <!-- end shcedule modifier -->
+        
+        <!-- begin schedule generated -->
+        <div class="schedule-generated">
+            <div class="schedule-table"></div>
+            <div class="table-scroller"></div>
+        </div>
+        <!-- end shedule generated -->
+    </div>
+<!-- end main content ----------------------------------------------------------------------------->
+
+<!-- begin add course page ----------------------------------------------------------------------------->
+    <div class="add-course-page">
+        <button type="button" class="close-add-course-page">X</button>
+        <form class="add-course-form">
+            <h1>Add a Course</h1>
+            <div class="form-control">
+                <div class="form-control-name">
+                    <h3>Course Name: </h3>
+                    <input type="text" class="form-control-name-input" placeholder="e.g. Computer Science I">
+                </div>
+                <div class="form-period-list">
+                    <div class="form-control-period">
+                        <h3>period: </h3>
+                        <div class="form-control-period-content">
+                            <div class="form-control-period-day">
+                                <input type="checkbox" class="day01">
+                                Monday
+                                <input type="text" class="form-control-period-start s01" placeholder="start time (e.g. 14:20)">
+                                <input type="text" class="form-control-period-end e01" placeholder="end time (e.g. 15:35)">
+                            </div>
+                            <br> 
+                            <div class="form-control-period-day">
+                                <input type="checkbox" class="day02">
+                                Tuesday
+                                <input type="text" class="form-control-period-start s02" placeholder="start time (e.g. 14:20)">
+                                <input type="text" class="form-control-period-end e02" placeholder="end time (e.g. 15:35)">
+                            </div>
+                            <br>
+                            <div class="form-control-period-day">
+                                <input type="checkbox" class="day03">
+                                Wednesday
+                                <input type="text" class="form-control-period-start s03" placeholder="start time (e.g. 14:20)">
+                                <input type="text" class="form-control-period-end e03" placeholder="end time (e.g. 15:35)">
+                            </div>
+                            <br>
+                            <div class="form-control-period-day">
+                                <input type="checkbox" class="day04">
+                                Thursday
+                                <input type="text" class="form-control-period-start s04" placeholder="start time (e.g. 14:20)">
+                                <input type="text" class="form-control-period-end e04" placeholder="end time (e.g. 15:35)">
+                            </div>
+                            <br>
+                            <div class="form-control-period-day">
+                                <input type="checkbox" class="day05">
+                                Friday
+                                <input type="text" class="form-control-period-start s05" placeholder="start time (e.g. 14:20)">
+                                <input type="text" class="form-control-period-end e05" placeholder="end time (e.g. 15:35)">
+                            </div>
+                            <br>
+                            <div class="form-control-period-day">
+                                <input type="checkbox" class="day06">
+                                Saturday
+                                <input type="text" class="form-control-period-start s06" placeholder="start time (e.g. 14:20)">
+                                <input type="text" class="form-control-period-end e06" placeholder="end time (e.g. 15:35)">
+                            </div>
+                            <br>
+                            <div class="form-control-period-day">
+                                <input type="checkbox" class="day07">
+                                Sunday
+                                <input type="text" class="form-control-period-start s07" placeholder="start time (e.g. 14:20)">
+                                <input type="text" class="form-control-period-end e07" placeholder="end time (e.g. 15:35)">
+                            </div>
+                        </div>                    
+                    </div>
+                    
+                </div>
+                
+                <button type="button" class="form-control-add-period">add another period</button>
+                <button type="submit" class="submit-course-btn">submit</button>
+
+            </div>
+        </form>
+    </div>
+<!-- end add course page ----------------------------------------------------------------------------->
+
+<!-- begin add period page ----------------------------------------------------------------------------->
+
+<!-- end add period page ----------------------------------------------------------------------------->
+
+
+
+    <script src="app.js"></script>
+</body>
+</html>
