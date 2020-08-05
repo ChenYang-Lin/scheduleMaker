@@ -7,11 +7,6 @@
 
 /* begin navigation ------------------------------------------------------ */
 
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-}
 
 nav{
     display: flex;
@@ -73,20 +68,24 @@ nav{
 
 /* begin schedule modifier */
 .schedule-modifier{
-    min-height: 92vh;
-    min-width: 50vw;
+    height: 92vh;
+    width: 50vw;
     border-right: 2px solid black;
     text-align: center;
 }
 
 .course-header {
     background-color: cyan;
+    height: 10%;
 }
 
 .course-list{
+    width: 100%;
+    height: 75%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    overflow-y: scroll;
 }
 
 .course-container {
@@ -110,7 +109,7 @@ nav{
 
 .course-option-list {
     display: flex;
-    overflow: scroll;
+    overflow-x: scroll;
     min-height: 15vh;
 }
 
@@ -125,17 +124,114 @@ nav{
     white-space: nowrap;
 }
 
-
+.left-button {
+    width: 100%;
+    height: 10%; 
+    display: flex;
+    text-align: center;
+    margin-bottom: 5%;
+}
 
 .add-course-button {
-
+    width: 45%;
+    height: 100%;
+    border-radius: 2px;
+    background-color: skyblue;
+    margin: 5px;
+}
+.generate-schedule {
+    width: 45%;
+    height: 100%;
+    border-radius: 2px;
+    background-color: skyblue;
+    margin: 5px;
 }
 
 /* begin schedule generated */
 .schedule-generated {
-    min-height: 92vh;
-    min-width: 50vw;
+    height: 92vh;
+    width: 50vw;
 }
+
+.schedule-table{
+    height: 90%;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.table-header{
+    height: 10%;
+    width: 100%;
+    display: flex;
+}
+.table-header-extra {
+    flex: 0 0 9%;
+    border-right: 1px solid black;
+}
+.table-header-day {
+    flex: 0 0 13%;
+    border-right: 1px solid black;
+    overflow: hidden;
+}
+
+
+.schedule-table-inside {
+    height: 90%;
+    width: 100%;
+    border-top: 1px solid black;
+    display: flex;
+}
+
+.table-time{
+    flex: 0 0 9%;
+    width: 9%;
+    display: flex;
+    flex-direction: column;
+}
+
+.hour{
+    flex: 0 0 15%;
+    border-right: 1px solid black;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.draw-course-color{
+    background-color: green;
+}
+.draw-color {
+    background-color: lightgreen;
+}
+
+.table-day{
+    flex: 0 0 13%;
+    width: 13%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/* choose between schedule plans */
+.number-plan {
+    height: 3%;
+    text-align: center;
+    width: 100%;
+}
+.table-scroller{
+    height: 7%;
+    width: 100%;
+    text-align: center;
+    display: flex;
+}
+.previous {
+    width: 50%;
+    height: 100%;
+}
+.next {
+    width: 50%;
+    height: 100%;
+}
+
 /* end main content ------------------------------------------------------ */
 
 
@@ -159,8 +255,47 @@ nav{
     text-align: center;
 }
 
+
 .form-control {
     text-align: left;
+}
+.form-control-header {
+    display: flex;
+}
+.form-control-name {
+    flex: 0 0 50%;
+    text-align: center;
+    display: flex;
+}
+.course-name-tag {
+    flex: 0 0 30%;
+}
+/* required field color */
+.required-name {
+    color: black;
+}
+.form-control-name-input {
+    flex: 0 0 70%;
+    height: 30px;
+}
+.add-period-and-submit{
+    flex: 0 0 50%;
+    text-align: center;
+    display: flex;
+}
+.form-control-add-period {
+    flex: 0 0 50%;
+    min-width: 100px;
+    height: 30px;
+    border: 1px solid green;
+    border-radius: 3px;
+
+}
+.submit-course-btn {
+    flex: 0 0 50%;
+    height: 30px;
+    border: 1px solid green;
+    border-radius: 3px;
 }
 
 .form-period-list{
@@ -169,10 +304,17 @@ nav{
 }
 
 .form-control-period{
-    flex: 0 0 50%;
+    flex: 0 0 30%;
     background-color: lightgreen;
     white-space: nowrap;
     margin: 2px;
+}
+
+.form-control-period-start {
+    width: 30px;
+}
+.form-control-period-end {
+    width: 30px;
 }
 
 /* end add course page ------------------------------------------------------ */

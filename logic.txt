@@ -1,0 +1,36 @@
+
+
+course {
+    {
+        courseId: 1,
+        name: computer science,
+        session: [
+            {
+                day: {},
+                startTime: {},
+                endTime: {},
+            },
+            {
+                day: {},
+                startTime: {},
+                endTime: {},
+            }
+        ]
+    },
+    {
+        courseId: 2,
+        name: computer science,
+        session: [
+            {
+                day: {},
+                startTime: {},
+                endTime: {},
+            },
+            {
+                day: {},
+                startTime: {},
+                endTime: {},
+            }
+        ]
+    },
+}

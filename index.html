@@ -15,9 +15,9 @@
         </div>
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
+            <!-- <li><a href="#">About</a></li>
             <li><a href="#">Work</a></li>
-            <li><a href="#">Projects</a></li>
+            <li><a href="#">Projects</a></li> -->
         </ul>
         <div class="burger">
             <div class="line1"></div>
@@ -34,7 +34,7 @@
         <div class="schedule-modifier">
             <h1 class="course-header">Courses</h1>
             <div class="course-list">
-                <div class="course-container">
+                <!-- <div class="course-container">
                     <div class="course-name-btn">
                         <div class="course-name">Computer Science</div>                
                         <button class="add-period-button">Add a period</button>
@@ -65,17 +65,198 @@
                         <li class="list-item">Mon 11am-3pm</li>
                         <li class="list-item">Mon 11am-3pm</li>
                     </div>
-                </div>                
+                </div>                 -->
             </div>
-            <button type="button" class="add-course-button">Add a course</button>
-            <button type="button" class="generate-schedule">Generate!</button>
+            <div class="left-button">
+                <button type="button" class="add-course-button">Add a course</button>
+                <button type="button" class="generate-schedule">Generate!</button>
+            </div>
         </div>
         <!-- end shcedule modifier -->
         
         <!-- begin schedule generated -->
         <div class="schedule-generated">
-            <div class="schedule-table"></div>
-            <div class="table-scroller"></div>
+            <!-- table -->
+            <div class="schedule-table">
+                <div class="table-header">
+                    <div class="table-header-extra"></div>
+                    <div class="table-header-day">Monday</div>
+                    <div class="table-header-day">Tuesday</div>
+                    <div class="table-header-day">Wednesday</div>
+                    <div class="table-header-day">Thursday</div>
+                    <div class="table-header-day">Friday</div>
+                    <div class="table-header-day">Saturday</div>
+                    <div class="table-header-day">Sunday</div>
+                </div>
+                <div class="schedule-table-inside">
+                    <div class="table-time">
+                        <div class="hour 6">6:00</div>
+                        <div class="hour 7">7:00</div>
+                        <div class="hour 8">8:00</div>
+                        <div class="hour 9">9:00</div>
+                        <div class="hour 10">10:00</div>
+                        <div class="hour 11">11:00</div>
+                        <div class="hour 12">12:00</div>
+                        <div class="hour 13">13:00</div>
+                        <div class="hour 14">14:00</div>
+                        <div class="hour 15">15:00</div>
+                        <div class="hour 16">16:00</div>
+                        <div class="hour 17">17:00</div>
+                        <div class="hour 18">18:00</div>
+                        <div class="hour 19">19:00</div>
+                        <div class="hour 20">20:00</div>
+                        <div class="hour 21">21:00</div>
+                        <div class="hour 22">22:00</div>
+                    </div>
+                    <!-- monday -->
+                    <div class="table-day monday">
+                        <div class="hour t1-6"></div>
+                        <div class="hour t1-7"></div>
+                        <div class="hour t1-8"></div>
+                        <div class="hour t1-9"></div>
+                        <div class="hour t1-10"></div>
+                        <div class="hour t1-11"></div>
+                        <div class="hour t1-12"></div>
+                        <div class="hour t1-13"></div>
+                        <div class="hour t1-14"></div>
+                        <div class="hour t1-15"></div>
+                        <div class="hour t1-16"></div>
+                        <div class="hour t1-17"></div>
+                        <div class="hour t1-18"></div>
+                        <div class="hour t1-19"></div>
+                        <div class="hour t1-20"></div>
+                        <div class="hour t1-21"></div>
+                        <div class="hour t1-22"></div>
+                    </div>
+                    <!-- tuesday -->
+                    <div class="table-day tuesday">
+                        <div class="hour t2-6"></div>
+                        <div class="hour t2-7"></div>
+                        <div class="hour t2-8"></div>
+                        <div class="hour t2-9"></div>
+                        <div class="hour t2-10"></div>
+                        <div class="hour t2-11"></div>
+                        <div class="hour t2-12"></div>
+                        <div class="hour t2-13"></div>
+                        <div class="hour t2-14"></div>
+                        <div class="hour t2-15"></div>
+                        <div class="hour t2-16"></div>
+                        <div class="hour t2-17"></div>
+                        <div class="hour t2-18"></div>
+                        <div class="hour t2-19"></div>
+                        <div class="hour t2-20"></div>
+                        <div class="hour t2-21"></div>
+                        <div class="hour t2-22"></div>
+                    </div>
+                    <!-- wednesday -->
+                    <div class="table-day wednesday">
+                        <div class="hour t3-6"></div>
+                        <div class="hour t3-7"></div>
+                        <div class="hour t3-8"></div>
+                        <div class="hour t3-9"></div>
+                        <div class="hour t3-10"></div>
+                        <div class="hour t3-11"></div>
+                        <div class="hour t3-12"></div>
+                        <div class="hour t3-13"></div>
+                        <div class="hour t3-14"></div>
+                        <div class="hour t3-15"></div>
+                        <div class="hour t3-16"></div>
+                        <div class="hour t3-17"></div>
+                        <div class="hour t3-18"></div>
+                        <div class="hour t3-19"></div>
+                        <div class="hour t3-20"></div>
+                        <div class="hour t3-21"></div>
+                        <div class="hour t3-22"></div>
+                    </div>
+                    <!-- thursday -->
+                    <div class="table-day thursday">
+                        <div class="hour t4-6"></div>
+                        <div class="hour t4-7"></div>
+                        <div class="hour t4-8"></div>
+                        <div class="hour t4-9"></div>
+                        <div class="hour t4-10"></div>
+                        <div class="hour t4-11"></div>
+                        <div class="hour t4-12"></div>
+                        <div class="hour t4-13"></div>
+                        <div class="hour t4-14"></div>
+                        <div class="hour t4-15"></div>
+                        <div class="hour t4-16"></div>
+                        <div class="hour t4-17"></div>
+                        <div class="hour t4-18"></div>
+                        <div class="hour t4-19"></div>
+                        <div class="hour t4-20"></div>
+                        <div class="hour t4-21"></div>
+                        <div class="hour t4-22"></div>
+                    </div>
+                    <!-- friday -->
+                    <div class="table-day friday">
+                        <div class="hour t5-6"></div>
+                        <div class="hour t5-7"></div>
+                        <div class="hour t5-8"></div>
+                        <div class="hour t5-9"></div>
+                        <div class="hour t5-10"></div>
+                        <div class="hour t5-11"></div>
+                        <div class="hour t5-12"></div>
+                        <div class="hour t5-13"></div>
+                        <div class="hour t5-14"></div>
+                        <div class="hour t5-15"></div>
+                        <div class="hour t5-16"></div>
+                        <div class="hour t5-17"></div>
+                        <div class="hour t5-18"></div>
+                        <div class="hour t5-19"></div>
+                        <div class="hour t5-20"></div>
+                        <div class="hour t5-21"></div>
+                        <div class="hour t5-22"></div>
+                    </div>
+                    <!-- saturday -->
+                    <div class="table-day saturday">
+                        <div class="hour t6-6"></div>
+                        <div class="hour t6-7"></div>
+                        <div class="hour t6-8"></div>
+                        <div class="hour t6-9"></div>
+                        <div class="hour t6-10"></div>
+                        <div class="hour t6-11"></div>
+                        <div class="hour t6-12"></div>
+                        <div class="hour t6-13"></div>
+                        <div class="hour t6-14"></div>
+                        <div class="hour t6-15"></div>
+                        <div class="hour t6-16"></div>
+                        <div class="hour t6-17"></div>
+                        <div class="hour t6-18"></div>
+                        <div class="hour t6-19"></div>
+                        <div class="hour t6-20"></div>
+                        <div class="hour t6-21"></div>
+                        <div class="hour t6-22"></div>
+                    </div>
+                    <!-- sunday -->
+                    <div class="table-day sunday">
+                        <div class="hour t7-6"></div>
+                        <div class="hour t7-7"></div>
+                        <div class="hour t7-8"></div>
+                        <div class="hour t7-9"></div>
+                        <div class="hour t7-10"></div>
+                        <div class="hour t7-11"></div>
+                        <div class="hour t7-12"></div>
+                        <div class="hour t7-13"></div>
+                        <div class="hour t7-14"></div>
+                        <div class="hour t7-15"></div>
+                        <div class="hour t7-16"></div>
+                        <div class="hour t7-17"></div>
+                        <div class="hour t7-18"></div>
+                        <div class="hour t7-19"></div>
+                        <div class="hour t7-20"></div>
+                        <div class="hour t7-21"></div>
+                        <div class="hour t7-22"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- table-scroller -->
+            <div class="number-plan"></div>
+            <div class="table-scroller">
+                <button type="button" class="previous">Previous</button>
+                <button type="button" class="next">Next</button>
+            </div>
         </div>
         <!-- end shedule generated -->
     </div>
@@ -84,13 +265,19 @@
 <!-- begin add course page ----------------------------------------------------------------------------->
     <div class="add-course-page">
         <button type="button" class="close-add-course-page">X</button>
-        <form class="add-course-form">
+        <form action="" class="add-course-form">
             <h1>Add a Course</h1>
             <div class="form-control">
-                <div class="form-control-name">
-                    <h3>Course Name: </h3>
-                    <input type="text" class="form-control-name-input" placeholder="e.g. Computer Science I">
-                </div>
+                <div class="form-control-header">
+                    <div class="form-control-name">
+                        <h3 class="course-name-tag required-name">Course Name: </h3>
+                        <input required type="text" class="form-control-name-input" placeholder="e.g. Computer Science I" name="course-name">
+                    </div>
+                    <div class="add-period-and-submit">
+                        <button type="button" class="form-control-add-period">add another period</button>
+                        <button type="submit" class="submit-course-btn">submit</button>
+                    </div>
+                </div>                
                 <div class="form-period-list">
                     <div class="form-control-period">
                         <h3>period: </h3>
@@ -98,58 +285,114 @@
                             <div class="form-control-period-day">
                                 <input type="checkbox" class="day01">
                                 Monday
-                                <input type="text" class="form-control-period-start s01" placeholder="start time (e.g. 14:20)">
-                                <input type="text" class="form-control-period-end e01" placeholder="end time (e.g. 15:35)">
+                                <div class="hour-min">
+                                    class time:
+                                    <input type="text" class="form-control-period-start s01" placeholder="6-22">
+                                    :
+                                    <input type="text" class="form-control-period-start sm01" placeholder="0-60">
+                                    -
+                                    <input type="text" class="form-control-period-end e01" placeholder="6-22">
+                                    :
+                                    <input type="text" class="form-control-period-end em01" placeholder="0-60">
+                                </div>
                             </div>
                             <br> 
                             <div class="form-control-period-day">
                                 <input type="checkbox" class="day02">
                                 Tuesday
-                                <input type="text" class="form-control-period-start s02" placeholder="start time (e.g. 14:20)">
-                                <input type="text" class="form-control-period-end e02" placeholder="end time (e.g. 15:35)">
+                                <div class="hour-min">
+                                    class time:
+                                    <input type="text" class="form-control-period-start s02" placeholder="6-22">
+                                    :
+                                    <input type="text" class="form-control-period-start sm02" placeholder="0-60">
+                                    -
+                                    <input type="text" class="form-control-period-end e02" placeholder="6-22">
+                                    :
+                                    <input type="text" class="form-control-period-end em02" placeholder="0-60">
+                                </div>
                             </div>
                             <br>
                             <div class="form-control-period-day">
                                 <input type="checkbox" class="day03">
                                 Wednesday
-                                <input type="text" class="form-control-period-start s03" placeholder="start time (e.g. 14:20)">
-                                <input type="text" class="form-control-period-end e03" placeholder="end time (e.g. 15:35)">
+                                <div class="hour-min">
+                                    class time:
+                                    <input type="text" class="form-control-period-start s03" placeholder="6-22">
+                                    :
+                                    <input type="text" class="form-control-period-start sm03" placeholder="0-60">
+                                    -
+                                    <input type="text" class="form-control-period-end e03" placeholder="6-22">
+                                    :
+                                    <input type="text" class="form-control-period-end em03" placeholder="0-60">
+                                </div>
                             </div>
                             <br>
                             <div class="form-control-period-day">
                                 <input type="checkbox" class="day04">
                                 Thursday
-                                <input type="text" class="form-control-period-start s04" placeholder="start time (e.g. 14:20)">
-                                <input type="text" class="form-control-period-end e04" placeholder="end time (e.g. 15:35)">
+                                <div class="hour-min">
+                                    class time:
+                                    <input type="text" class="form-control-period-start s04" placeholder="6-22">
+                                    :
+                                    <input type="text" class="form-control-period-start sm04" placeholder="0-60">
+                                    -
+                                    <input type="text" class="form-control-period-end e04" placeholder="6-22">
+                                    :
+                                    <input type="text" class="form-control-period-end em04" placeholder="0-60">
+                                </div>
                             </div>
                             <br>
                             <div class="form-control-period-day">
                                 <input type="checkbox" class="day05">
                                 Friday
-                                <input type="text" class="form-control-period-start s05" placeholder="start time (e.g. 14:20)">
-                                <input type="text" class="form-control-period-end e05" placeholder="end time (e.g. 15:35)">
+                                <div class="hour-min">
+                                    class time:
+                                    <input type="text" class="form-control-period-start s05" placeholder="6-22">
+                                    :
+                                    <input type="text" class="form-control-period-start sm05" placeholder="0-60">
+                                    -
+                                    <input type="text" class="form-control-period-end e05" placeholder="6-22">
+                                    :
+                                    <input type="text" class="form-control-period-end em05" placeholder="0-60">
+                                </div>
                             </div>
                             <br>
                             <div class="form-control-period-day">
                                 <input type="checkbox" class="day06">
                                 Saturday
-                                <input type="text" class="form-control-period-start s06" placeholder="start time (e.g. 14:20)">
-                                <input type="text" class="form-control-period-end e06" placeholder="end time (e.g. 15:35)">
+                                <div class="hour-min">
+                                    class time:
+                                    <input type="text" class="form-control-period-start s06" placeholder="6-22">
+                                    :
+                                    <input type="text" class="form-control-period-start sm06" placeholder="0-60">
+                                    -
+                                    <input type="text" class="form-control-period-end e06" placeholder="6-22">
+                                    :
+                                    <input type="text" class="form-control-period-end em06" placeholder="0-60">
+                                </div>
                             </div>
                             <br>
                             <div class="form-control-period-day">
                                 <input type="checkbox" class="day07">
                                 Sunday
-                                <input type="text" class="form-control-period-start s07" placeholder="start time (e.g. 14:20)">
-                                <input type="text" class="form-control-period-end e07" placeholder="end time (e.g. 15:35)">
+                                <div class="hour-min">
+                                    class time:
+                                    <input type="text" class="form-control-period-start s07" placeholder="6-22">
+                                    :
+                                    <input type="text" class="form-control-period-start sm07" placeholder="0-60">
+                                    -
+                                    <input type="text" class="form-control-period-end e07" placeholder="6-22">
+                                    :
+                                    <input type="text" class="form-control-period-end em07" placeholder="0-60">
+                                </div>
                             </div>
                         </div>                    
                     </div>
                     
                 </div>
                 
-                <button type="button" class="form-control-add-period">add another period</button>
-                <button type="submit" class="submit-course-btn">submit</button>
+                
+
 
             </div>
         </form>
