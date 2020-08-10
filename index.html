@@ -32,22 +32,26 @@
     <div class="main-content">
         <!-- begin schedule modifier -->
         <div class="schedule-modifier">
-            <h1 class="course-header">Courses</h1>
+            <h1 class="course-header"><div class="header-div">Course</div></h1>
             <div class="course-list">
-                <!-- <div class="course-container">
+                <!-- <div class="course-container"> // listCourseItem
                     <div class="course-name-btn">
                         <div class="course-name">Computer Science</div>                
-                        <button class="add-period-button">Add a period</button>
+                        <div class="add-hold-delete">                
+                            <button class="add-period-button">Add Period</button>
+                            <button class="hold-period-button">Hold Course</button>
+                            <button class="delete-period-button">Delete Course</button>
+                        </div>
                     </div>
                     <div class="course-option-list">
-                        <li class="list-item">Mon 11am-3pm</li>
-                        <li class="list-item">Mon 11am-3pm</li>
-                        <li class="list-item">Mon 11am-3pm</li>
-                        <li class="list-item">Mon 11am-3pm</li>
-                        <li class="list-item">Mon 11am-3pm</li>
-                        <li class="list-item">Mon 11am-3pm</li>
-                        <li class="list-item">Mon 11am-3pm</li>
-                        <li class="list-item">Mon 11am-3pm</li>
+                        <li class="list-item">      // listPeriodItem
+                            <div class="delete-hold">
+                                <button class="hold-period"> Hold </button>
+                                <button class="delete-period"> X </button>
+                                Mon 11am-3pm
+                            </div>
+                        </li>
+
                     </div>
                 </div>   
                 <div class="course-container">
@@ -287,13 +291,21 @@
                                 Monday
                                 <div class="hour-min">
                                     class time:
-                                    <input type="text" class="form-control-period-start s01" placeholder="6-22">
+                                    <input type="text" class="form-control-period-start s01" placeholder="" disabled="disabled">
                                     :
-                                    <input type="text" class="form-control-period-start sm01" placeholder="0-60">
+                                    <input type="text" class="form-control-period-start sm01" placeholder="" disabled="disabled">
                                     -
-                                    <input type="text" class="form-control-period-end e01" placeholder="6-22">
+                                    <input type="text" class="form-control-period-end e01" placeholder="" disabled="disabled">
                                     :
-                                    <input type="text" class="form-control-period-end em01" placeholder="0-60">
+                                    <input type="text" class="form-control-period-end em01" placeholder="" disabled="disabled">
+                                    <!-- <select name="hour" id="monday-select">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select> -->
                                 </div>
                             </div>
                             <br> 
@@ -302,13 +314,13 @@
                                 Tuesday
                                 <div class="hour-min">
                                     class time:
-                                    <input type="text" class="form-control-period-start s02" placeholder="6-22">
+                                    <input type="text" class="form-control-period-start s02" placeholder="" disabled="disabled">
                                     :
-                                    <input type="text" class="form-control-period-start sm02" placeholder="0-60">
+                                    <input type="text" class="form-control-period-start sm02" placeholder="" disabled="disabled">
                                     -
-                                    <input type="text" class="form-control-period-end e02" placeholder="6-22">
+                                    <input type="text" class="form-control-period-end e02" placeholder="" disabled="disabled">
                                     :
-                                    <input type="text" class="form-control-period-end em02" placeholder="0-60">
+                                    <input type="text" class="form-control-period-end em02" placeholder="" disabled="disabled">
                                 </div>
                             </div>
                             <br>
@@ -317,13 +329,13 @@
                                 Wednesday
                                 <div class="hour-min">
                                     class time:
-                                    <input type="text" class="form-control-period-start s03" placeholder="6-22">
+                                    <input type="text" class="form-control-period-start s03" placeholder="" disabled="disabled">
                                     :
-                                    <input type="text" class="form-control-period-start sm03" placeholder="0-60">
+                                    <input type="text" class="form-control-period-start sm03" placeholder="" disabled="disabled">
                                     -
-                                    <input type="text" class="form-control-period-end e03" placeholder="6-22">
+                                    <input type="text" class="form-control-period-end e03" placeholder="" disabled="disabled">
                                     :
-                                    <input type="text" class="form-control-period-end em03" placeholder="0-60">
+                                    <input type="text" class="form-control-period-end em03" placeholder="" disabled="disabled">
                                 </div>
                             </div>
                             <br>
@@ -332,13 +344,13 @@
                                 Thursday
                                 <div class="hour-min">
                                     class time:
-                                    <input type="text" class="form-control-period-start s04" placeholder="6-22">
+                                    <input type="text" class="form-control-period-start s04" placeholder="" disabled="disabled">
                                     :
-                                    <input type="text" class="form-control-period-start sm04" placeholder="0-60">
+                                    <input type="text" class="form-control-period-start sm04" placeholder="" disabled="disabled">
                                     -
-                                    <input type="text" class="form-control-period-end e04" placeholder="6-22">
+                                    <input type="text" class="form-control-period-end e04" placeholder="" disabled="disabled">
                                     :
-                                    <input type="text" class="form-control-period-end em04" placeholder="0-60">
+                                    <input type="text" class="form-control-period-end em04" placeholder="" disabled="disabled">
                                 </div>
                             </div>
                             <br>
@@ -347,13 +359,13 @@
                                 Friday
                                 <div class="hour-min">
                                     class time:
-                                    <input type="text" class="form-control-period-start s05" placeholder="6-22">
+                                    <input type="text" class="form-control-period-start s05" placeholder="" disabled="disabled">
                                     :
-                                    <input type="text" class="form-control-period-start sm05" placeholder="0-60">
+                                    <input type="text" class="form-control-period-start sm05" placeholder="" disabled="disabled">
                                     -
-                                    <input type="text" class="form-control-period-end e05" placeholder="6-22">
+                                    <input type="text" class="form-control-period-end e05" placeholder="" disabled="disabled">
                                     :
-                                    <input type="text" class="form-control-period-end em05" placeholder="0-60">
+                                    <input type="text" class="form-control-period-end em05" placeholder="" disabled="disabled">
                                 </div>
                             </div>
                             <br>
@@ -362,13 +374,13 @@
                                 Saturday
                                 <div class="hour-min">
                                     class time:
-                                    <input type="text" class="form-control-period-start s06" placeholder="6-22">
+                                    <input type="text" class="form-control-period-start s06" placeholder="" disabled="disabled">
                                     :
-                                    <input type="text" class="form-control-period-start sm06" placeholder="0-60">
+                                    <input type="text" class="form-control-period-start sm06" placeholder="" disabled="disabled">
                                     -
-                                    <input type="text" class="form-control-period-end e06" placeholder="6-22">
+                                    <input type="text" class="form-control-period-end e06" placeholder="" disabled="disabled">
                                     :
-                                    <input type="text" class="form-control-period-end em06" placeholder="0-60">
+                                    <input type="text" class="form-control-period-end em06" placeholder="" disabled="disabled">
                                 </div>
                             </div>
                             <br>
@@ -377,13 +389,13 @@
                                 Sunday
                                 <div class="hour-min">
                                     class time:
-                                    <input type="text" class="form-control-period-start s07" placeholder="6-22">
+                                    <input type="text" class="form-control-period-start s07" placeholder="" disabled="disabled">
                                     :
-                                    <input type="text" class="form-control-period-start sm07" placeholder="0-60">
+                                    <input type="text" class="form-control-period-start sm07" placeholder="" disabled="disabled">
                                     -
-                                    <input type="text" class="form-control-period-end e07" placeholder="6-22">
+                                    <input type="text" class="form-control-period-end e07" placeholder="" disabled="disabled">
                                     :
-                                    <input type="text" class="form-control-period-end em07" placeholder="0-60">
+                                    <input type="text" class="form-control-period-end em07" placeholder="" disabled="disabled">
                                 </div>
                             </div>
                         </div>                    
@@ -400,7 +412,120 @@
 <!-- end add course page ----------------------------------------------------------------------------->
 
 <!-- begin add period page ----------------------------------------------------------------------------->
+<div class="add-period-page">
+    <button type="button" class="close-add-period-page">X</button>
 
+    <button type="submit" class="submit-period-btn">submit</button>
+                    
+    <div class="form-control-period-add">
+        <div class="form-control-period-content">
+            <div class="form-control-period-day">
+                <input type="checkbox" class="day1">
+                Monday
+                <div class="hour-min">
+                    class time:
+                    <input type="text" class="form-control-period-start s1" placeholder="" disabled="disabled">
+                    :
+                    <input type="text" class="form-control-period-start sm1" placeholder="" disabled="disabled">
+                    -
+                    <input type="text" class="form-control-period-end e1" placeholder="" disabled="disabled">
+                    :
+                    <input type="text" class="form-control-period-end em1" placeholder="" disabled="disabled">
+                </div>
+            </div>
+            <br> 
+            <div class="form-control-period-day">
+                <input type="checkbox" class="day2">
+                Tuesday
+                <div class="hour-min">
+                    class time:
+                    <input type="text" class="form-control-period-start s2" placeholder="" disabled="disabled">
+                    :
+                    <input type="text" class="form-control-period-start sm2" placeholder="" disabled="disabled">
+                    -
+                    <input type="text" class="form-control-period-end e2" placeholder="" disabled="disabled">
+                    :
+                    <input type="text" class="form-control-period-end em2" placeholder="" disabled="disabled">
+                </div>
+            </div>
+            <br>
+            <div class="form-control-period-day">
+                <input type="checkbox" class="day3">
+                Wednesday
+                <div class="hour-min">
+                    class time:
+                    <input type="text" class="form-control-period-start s3" placeholder="" disabled="disabled">
+                    :
+                    <input type="text" class="form-control-period-start sm3" placeholder="" disabled="disabled">
+                    -
+                    <input type="text" class="form-control-period-end e3" placeholder="" disabled="disabled">
+                    :
+                    <input type="text" class="form-control-period-end em3" placeholder="" disabled="disabled">
+                </div>
+            </div>
+            <br>
+            <div class="form-control-period-day">
+                <input type="checkbox" class="day4">
+                Thursday
+                <div class="hour-min">
+                    class time:
+                    <input type="text" class="form-control-period-start s4" placeholder="" disabled="disabled">
+                    :
+                    <input type="text" class="form-control-period-start sm4" placeholder="" disabled="disabled">
+                    -
+                    <input type="text" class="form-control-period-end e4" placeholder="" disabled="disabled">
+                    :
+                    <input type="text" class="form-control-period-end em4" placeholder="" disabled="disabled">
+                </div>
+            </div>
+            <br>
+            <div class="form-control-period-day">
+                <input type="checkbox" class="day5">
+                Friday
+                <div class="hour-min">
+                    class time:
+                    <input type="text" class="form-control-period-start s5" placeholder="" disabled="disabled">
+                    :
+                    <input type="text" class="form-control-period-start sm5" placeholder="" disabled="disabled">
+                    -
+                    <input type="text" class="form-control-period-end e5" placeholder="" disabled="disabled">
+                    :
+                    <input type="text" class="form-control-period-end em5" placeholder="" disabled="disabled">
+                </div>
+            </div>
+            <br>
+            <div class="form-control-period-day">
+                <input type="checkbox" class="day6">
+                Saturday
+                <div class="hour-min">
+                    class time:
+                    <input type="text" class="form-control-period-start s6" placeholder="" disabled="disabled">
+                    :
+                    <input type="text" class="form-control-period-start sm6" placeholder="" disabled="disabled">
+                    -
+                    <input type="text" class="form-control-period-end e6" placeholder="" disabled="disabled">
+                    :
+                    <input type="text" class="form-control-period-end em6" placeholder="" disabled="disabled">
+                </div>
+            </div>
+            <br>
+            <div class="form-control-period-day">
+                <input type="checkbox" class="day7">
+                Sunday
+                <div class="hour-min">
+                    class time:
+                    <input type="text" class="form-control-period-start s7" placeholder="" disabled="disabled">
+                    :
+                    <input type="text" class="form-control-period-start sm7" placeholder="" disabled="disabled">
+                    -
+                    <input type="text" class="form-control-period-end e7" placeholder="" disabled="disabled">
+                    :
+                    <input type="text" class="form-control-period-end em7" placeholder="" disabled="disabled">
+                </div>
+            </div>
+        </div>                    
+    </div>
+</div>
 <!-- end add period page ----------------------------------------------------------------------------->
 
 

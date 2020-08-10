@@ -9,6 +9,7 @@ course {
                 day: {},
                 startTime: {},
                 endTime: {},
+                periodID,
             },
             {
                 day: {},

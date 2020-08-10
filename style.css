@@ -77,6 +77,13 @@ nav{
 .course-header {
     background-color: cyan;
     height: 10%;
+    position: relative;
+}
+.header-div {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 38%;
 }
 
 .course-list{
@@ -89,24 +96,58 @@ nav{
 }
 
 .course-container {
-    border: 3px solid black;
+    border: 2px solid black;
     margin: 2px;
 }
 
 .course-name-btn {
     position: relative;
     display: flex;
+    background-color: green;
 }
 
 .course-name {
     background-color: lightgreen;
+    height: 5vh;
+    font-weight: 700;
+    width: 50%;
+    border-radius: 10px;
+    padding-top: 5px;
 }
-
+/* add hold delete */
+.add-hold-delete {
+    width: 60%;
+    background-color: green;
+    display: flex;
+}
 .add-period-button {
-    position: absolute;
-    right: 10px;
+    width: 33.33%;
+    background-color: lightgrey;
+    border-radius: 15px;
+    border-color: grey;
 }
-
+.add-period-button:hover {
+    background-color: grey;
+}
+.hold-period-button {
+    width: 33.33%;
+    background-color: lightblue;
+    border-radius: 15px;
+    border-color: blue;
+}
+.hold-period-button:hover {
+    background-color: blue;
+}
+.delete-period-button {
+    width: 33.33%;
+    background-color: lightcoral;
+    border-radius: 15px;
+    border-color: red;
+}
+.delete-period-button:hover {
+    background-color: red;
+}
+/* end add hold delete */
 .course-option-list {
     display: flex;
     overflow-x: scroll;
@@ -120,7 +161,7 @@ nav{
     margin: 2px;
     display: flex;
     flex-direction: column;
-    overflow-x: scroll;
+    overflow-x: hidden;
     white-space: nowrap;
 }
 
@@ -304,11 +345,13 @@ nav{
 }
 
 .form-control-period{
-    flex: 0 0 30%;
+    flex: 0 0 35%;
     background-color: lightgreen;
     white-space: nowrap;
     margin: 2px;
 }
+
+
 
 .form-control-period-start {
     width: 30px;
@@ -317,10 +360,83 @@ nav{
     width: 30px;
 }
 
+
+/* delete hold period */
+.delete-hold {
+    display: flex;
+    background-color: green;
+}
+.hold-period {
+    width: 50%;
+    background-color: lightblue;
+    border-radius: 10px;
+}
+.hold-period:hover {
+    background-color: blue;
+}
+.delete-period {
+    width: 50%;
+    background-color: lightcoral;
+    border-radius: 10px;
+}
+.delete-period:hover{
+    background-color: red;
+}
+/* end delete hold period */
+
 /* end add course page ------------------------------------------------------ */
 
 
+/* begin add period page ----------------------------------------------------- */
+.add-period-page{
+    position: fixed;
+    width: 80vw;
+    height: 80vh;
+    top: 10vh;
+    left: 15vh;
+    text-align: center;
+    background-color: green;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+}
 
+.close-add-period-page {
+    height: 10%;
+    width: 10%;
+    position: absolute;
+    right: 0;
+    background-color: red;
+    outline: none;
+    border: none;
+    justify-content: end;
+    cursor: pointer;
+}
+
+.form-control-period-add {
+    position: absolute;
+    top: 10%;
+    width: 60%;
+    left: 20%;
+    background-color: lightgreen;
+}
+
+.submit-period-btn {
+    position: absolute;
+    bottom: 0%;
+    width: 80%;
+    height: 10%;
+    left: 10%;
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: 200%;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+/* end add period page ----------------------------------------------------- */
 
 
 
@@ -354,6 +470,16 @@ nav{
     }
     .burger{
         display: block;
+    }
+/* ------------------------------------------ */
+    .main-content {
+        flex-direction: column;
+    }
+    .schedule-modifier {
+        width: 100%;
+    }
+    .schedule-generated {
+        width: 100%;
     }
 }
 
