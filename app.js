@@ -687,6 +687,7 @@ function drawSchedule(validScheduleList, courseCount, index){
 
 
     if (validScheduleList.length === 0){
+	alert("no schedule generated!");
         return console.log("no schedule generated!");
     }
 
