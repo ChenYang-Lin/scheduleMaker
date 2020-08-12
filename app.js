@@ -36,7 +36,10 @@ let index = 0; //choose to see which generated schedule;
 let sessionCount = []; //number of periods of each course
 let formSessionCount = 0; //current course periods
 
+let holdCourseList = []; //if course on hold, value = 1. 0 otherwise.
+let holdPeriodList = []; //if course on hold, value = 1. 0 otherwise.
 
+let courseAvalibleCount = 0;
 
 // query selectors
 const addCourseBtn = document.querySelector('.add-course-button');
@@ -47,6 +50,7 @@ const addCoursePage = document.querySelector('.add-course-page');
 
 const scheduleTable = document.querySelector('.schedule-table');
 const numPlan = document.querySelector('.number-plan');
+
 
 // const submitCourse = document.querySelector('.submit-course-btn');
 
@@ -83,9 +87,14 @@ function addCourse(e){
     }
 
     // if there is no actual period, then no action
+    
     for (let j = 0; j <= formSessionCount; j++) {
+        let emptyPeriod = true;
         for(let i = 1; i <= 7; i++){
             if(document.querySelector('.day' + j + i).checked === true){
+                
+                emptyPeriod = false;
+
                 let sh = document.querySelector('.s' + j + i).value;
                 let sm = document.querySelector('.sm' + j + i).value;
                 let eh = document.querySelector('.e' + j + i).value;
@@ -121,12 +130,13 @@ function addCourse(e){
 
                 document.querySelector('.s' + j + i).disabled = false;
                 document.querySelector('.sm' + j + i).disabled = false;
-                break;
+
             }
-            if(i === 7){
-                alert("Make sure all there is no empty period!");
-                return;
-            }
+            
+        }
+        if(emptyPeriod === true){
+            alert("Make sure all there is no empty period!");
+            return;
         }
     }
     
@@ -220,6 +230,7 @@ function addCourse(e){
             <button class="delete-period"> X </button>
         </div>
         `
+        days += `<div class="display-period-info">`;
         for (let y = 1; y <= 7; y++){
             if (session[x][0][y] === true){
                 if(y === 1)
@@ -248,6 +259,7 @@ function addCourse(e){
                 days += `${sh}:${sm} - ${eh}:${em} <br>`
             }
         }
+        days += `</div>`;
         return days;
     }
 
@@ -532,49 +544,108 @@ function generateSchedule(e) {
 
 
     let pointerCount = [];
-    let countLoop = 0;
 
     validScheduleList = [];
 
-    
-    generateRec(courseCount, courseCount, 0, pointerCount);
+    // figure out whether could is hold or not
+    // course
+    let holdCount = 0;
+    for(let pointerHoldCourse = 0; pointerHoldCourse < courseCount; pointerHoldCourse++){
+        if (courseList.children[pointerHoldCourse].classList[1] === 'hold'){
+            holdCourseList[pointerHoldCourse] = 1;
+            holdCount++;
+        }
+        else {
+            holdCourseList[pointerHoldCourse] = 0;
+        }
+    }
+    // period
+    holdPeriodList = [];
+    for(let pointerHoldCourse = 0; pointerHoldCourse < courseCount; pointerHoldCourse++){
+        let tempArr = [];
+        for (let pointerHoldPeriod = 0; pointerHoldPeriod < course[pointerHoldCourse][2].length; pointerHoldPeriod++){
+            let currCourse = courseList.children[pointerHoldCourse];
+            let currPeriod = currCourse.children[1].children[pointerHoldPeriod];
+            if (currPeriod.classList[1] === 'hold'){
+                tempArr[pointerHoldPeriod] = 1;
+            }
+            else {
+                tempArr[pointerHoldPeriod] = 0;
+            }
+        }
+        holdPeriodList.push(tempArr);
+    }
+
+
+    // number of course is up ready
+    courseAvalibleCount = courseCount - holdCount;
+
+    generateRec(courseAvalibleCount, courseAvalibleCount, 0, 0, pointerCount);
     console.log(validScheduleList);
     drawSchedule(validScheduleList, courseCount, index);
 
 
-
-    function generateRec(n, m, currCourseNum, pointerCount) {        
-        
-
+    // courseNum match to course index; currCourseNum mathch to pointerCount index
+    
+    function generateRec(n, m, currCourseNum, courseNum, pointerCount) {     
+       
         if (n >= 1){
             //initialize
             if (m === n){
                 for (let pc = 0; pc < m; pc++)
                     pointerCount[pc] = 0;
             }
-            // course[countLoop][0] = number of periods
-            //for (let i = 0; i <= course[countLoop][0]; i++){
-            for (let i = 0; i < course[currCourseNum][2].length; i++){
-                countLoop = currCourseNum;
-                pointerCount[countLoop] = i;
-                generateRec(n - 1, m, currCourseNum + 1, pointerCount);
+            
+            while (holdCourseList[courseNum] !== 0){
+                if(courseNum >= courseCount-1){
+                    return;
+                }
+                courseNum++;
+            }
+
+            for (let i = 0; i < course[courseNum][2].length; i++){
+                //if current period is on hold, then contintue to next period
+                if (holdPeriodList[courseNum][i] !== 0)
+                    continue;
+
+                pointerCount[currCourseNum] = i;
+                generateRec(n - 1, m, currCourseNum + 1, courseNum + 1, pointerCount);
             }
         }
         else {
-            checkOverlapAll(0, currCourseNum-1, pointerCount);            
+            checkOverlapAll(0, 0, courseNum-1, pointerCount);            
         }
 
-        function checkOverlapAll(x, countLoop, pointerCount) {
-            
-            if (x != countLoop) {
-                for (let i = x+1; i <= countLoop; i++){
-                    if(checkOverlap(x,i, pointerCount[x], pointerCount[i]) === true){
+        // cx = course index, x = index of pointerCount correspond to cx, cousrNum number of ready course (count start at index 0)
+        function checkOverlapAll(x, cx, courseNum, pointerCount) {
+            while (holdCourseList[cx] !== 0) {
+                if(cx >= courseCount-1){
+                    return;
+                }
+                cx++;
+            }
+            // cx = 1  courseNum = 1
+            if (cx != courseNum) {
+                let i = x;
+
+                
+                for (let ci = cx+1; ci <= courseNum; ci++){
+                    if (holdCourseList[ci] !== 0) {
+                        if (ci >= courseCount-1){
+                            return;
+                        }
+                        continue;
+                    } 
+                    i++;
+                    if(checkOverlap(cx, ci, pointerCount[x], pointerCount[i]) === true){
                         return;
                     }
                         
                 }
-                checkOverlapAll(x + 1, countLoop, pointerCount);
+                
+                checkOverlapAll(x+1, cx + 1, courseNum, pointerCount);
             }
+            // pointerCount = [[0]]
             else{
                 pointerCount = Object.values(pointerCount);
                 validScheduleList.push(pointerCount);
@@ -615,8 +686,9 @@ function generateSchedule(e) {
 function drawSchedule(validScheduleList, courseCount, index){
 
 
-    if (validScheduleList.length === 0)
+    if (validScheduleList.length === 0){
         return console.log("no schedule generated!");
+    }
 
     scheduleTable.innerHTML = 
     `
@@ -793,12 +865,22 @@ function drawSchedule(validScheduleList, courseCount, index){
     </div>
     `
 
-    for (let i = 0; i < courseCount; i++){
+    // ci = index of course in array; i = index of validScheduleList
+    let i = -1;
+    loop1:
+    for (let ci = 0; ci < courseCount; ci++){
+        while (holdCourseList[ci] !== 0){
+            if(ci >= courseCount-1){
+                break loop1;
+            }
+            ci++;
+        }
+        i++;
         for (let a = 1; a <= 7; a++){
-            if (!(course[i][2][validScheduleList[index][i]][0][a])) continue;
-            let st = course[i][2][validScheduleList[index][i]][1][a];
-            let et = course[i][2][validScheduleList[index][i]][2][a];
-            drawName = course[i][1];
+            if (!(course[ci][2][validScheduleList[index][i]][0][a])) continue;
+            let st = course[ci][2][validScheduleList[index][i]][1][a];
+            let et = course[ci][2][validScheduleList[index][i]][2][a];
+            drawName = course[ci][1];
 
             let stringDay = String(a);
             let stringST = String(Math.floor(st / 60)); 
@@ -1291,6 +1373,59 @@ function deleteCheck(e) {
         function addPeriodToCurrentCourse(e) {
             // delete event listener instantly
             e.target.removeEventListener(e.type, arguments.callee);
+
+            //check if user had valid input
+            let emptyPeriod = true;
+            for(let i = 1; i <= 7; i++){
+                if(document.querySelector('.day' + i).checked === true){
+                    emptyPeriod = false;
+
+                    let sh = document.querySelector('.s' + i).value;
+                    let sm = document.querySelector('.sm' + i).value;
+                    let eh = document.querySelector('.e' + i).value;
+                    let em = document.querySelector('.em' + i).value;
+
+                    if(sh === '' || sm === '' || eh === '' || em === ''){
+                        alert('Please fill out the time for each day you have selected');
+                        e.target.addEventListener(e.type, arguments.callee);
+                        return;
+                    }
+
+                    if (sh < 6){
+                        if(sh < 0){
+                            alert('invalid input, hour should in range of 0 - 23. Please correct it');
+                            e.target.addEventListener(e.type, arguments.callee);
+                            return;
+                        }
+                        alert('really?! Your class start before 6a.m.? Drop that period, you need more sleep!');
+                        e.target.addEventListener(e.type, arguments.callee);
+                        return;
+                    }
+                    if (eh > 22){
+                        if(eh > 23){
+                            alert('invalid input, hour should in range of 0 - 23. Please correct it');
+                            e.target.addEventListener(e.type, arguments.callee);
+                            return;
+                        }
+                        alert('Be nice to yourself. Do not take any class after 10p.m. It is time to go to bed!');
+                        e.target.addEventListener(e.type, arguments.callee);
+                        return;
+                    }
+                    
+                    if (sm < 0 || em < 0 || sm > 60 || em > 60) {
+                        alert('invalid input, make sure minutes are in range of 0 - 59');
+                        e.target.addEventListener(e.type, arguments.callee);
+                        return;
+                    }
+
+                }
+            }
+            if(emptyPeriod === true){
+                alert("Make sure period is not empty!");
+                return;
+            }
+
+
             // add to array
             let object = {};
             let day = [];
@@ -1311,14 +1446,19 @@ function deleteCheck(e) {
                 // check if end time is ealier than start time, if true, return
                 if(sh > eh){
                     alert('invalid input! class end time should not be ealier than or equal class start time!!!')
+                    e.target.addEventListener(e.type, arguments.callee);
                     return;
                 }
                 if(sh === eh) {
                     if(sm >= em) {
                         alert('invalid input! class end time should not be ealier than or equal class start time!!!')
+                        e.target.addEventListener(e.type, arguments.callee);
                         return;
                     }
                 }
+                
+
+
             }
             object[0] = day;
             object[1] = startTime;
@@ -1343,6 +1483,7 @@ function deleteCheck(e) {
             `
             function getDayTime() {
                 let days = "";
+                days += `<div class="display-period-info">`;
                 for (let y = 1; y <= 7; y++){
                     if (course[listCourseIndex][2][sessionCount[listCourseIndex]][0][y] === true){
                         if(y === 1)
@@ -1371,6 +1512,7 @@ function deleteCheck(e) {
                         days += `${sh}:${sm} - ${eh}:${em} <br>`
                     }
                 }
+                days +=`</div>`;
                 return days;
             }
     
@@ -1381,6 +1523,51 @@ function deleteCheck(e) {
 
         return;
     }
+
+    // Hold Course
+    if(item.classList[0] === 'hold-period-button'){
+        let listCourseItem = item.parentElement.parentElement.parentElement;
+        const listCourseItemConst = listCourseItem;
+
+        let listCourseIndex = 0;
+        while (listCourseItem.previousElementSibling != null){
+            listCourseIndex++;
+            listCourseItem = listCourseItem.previousElementSibling;
+        }
+
+
+        // toggle class
+        listCourseItemConst.classList.toggle('hold');
+        listCourseItemConst.children[1].classList.toggle('hold-actual1');
+        listCourseItemConst.children[0].children[1].children[0].classList.toggle('hold-actual2');
+
+        resetScheduleTable();
+        return;
+    }
+
+    // Hold period
+    if(item.classList[0] === 'hold-period'){
+        let listPeriodItem = item.parentElement.parentElement;
+        const listPeriodItemConst = listPeriodItem;
+
+
+        //get idex of course and period
+        let listPeriodIndex = 0;
+        while( listPeriodItem.previousElementSibling != null){
+            listPeriodIndex++;
+            listPeriodItem = listPeriodItem.previousElementSibling;
+        }
+
+        // toggle class
+        listPeriodItemConst.classList.toggle('hold');
+        listPeriodItemConst.children[1].classList.toggle('hold-actual3');
+
+        // make schedule table empty
+        resetScheduleTable();
+
+        return;
+    }
+
 
 
 }

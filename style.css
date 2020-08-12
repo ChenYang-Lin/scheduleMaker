@@ -114,6 +114,8 @@ nav{
     border-radius: 10px;
     padding-top: 5px;
 }
+
+
 /* add hold delete */
 .add-hold-delete {
     width: 60%;
@@ -438,6 +440,28 @@ nav{
 
 /* end add period page ----------------------------------------------------- */
 
+.display-period-info {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+/* hold ------------------------------------------------------------------- */
+.hold-actual1 {
+    background-color: white;
+    opacity: 50%;
+    pointer-events: none;
+}
+.hold-actual2 {
+    background-color: white;
+    opacity: 50%;
+    pointer-events: none;
+}
+.hold-actual3 {
+    position: relative;
+    background-color: white;
+    opacity: 50%;
+    pointer-events: none;
+}
 
 
 /* begin media ------------------------------------------------------ */
